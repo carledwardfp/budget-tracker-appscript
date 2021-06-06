@@ -1,8 +1,8 @@
 function onOpen(e) {
   SpreadsheetApp.getUi()
-    .createMenu("BUDGET")
+    .createMenu("Run Script")
     .addSeparator()
-    .addItem("Generate Budget Summary", "budgetSummary")
+    .addItem("Generate Budget Summary", "generateDoc")
     .addSeparator()
     .addToUi();
 }
