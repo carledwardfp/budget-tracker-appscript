@@ -17,3 +17,28 @@ function isRowEmpty(columnHeaders, row) {
     row[columnHeaders.indexOf("E-wallet No. 4")] === ""
   );
 }
+
+function formatMoney(value) {
+  if (value)
+    return value.toLocaleString("en-PH", {
+      currency: "PHP",
+      style: "currency",
+    });
+}
+
+function formatDate(date) {
+  return date.toLocaleString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function convertDocToPdf(folder, file) {
+  let BLOBPDF = file.getAs(MimeType.PDF);
+  let pdf = folder.createFile(BLOBPDF);
+  pdf = pdf.setName(file.getName());
+  file.setTrashed(true);
+
+  return pdf;
+}

@@ -1,6 +1,7 @@
 function isUserAuthorized() {
   let DEFAULT_PERMISSIONS = [
     "carlpahuyo755@gmail.com",
+    "official.carlpahuyo@gmail.com",
     "cpahuyo@medgrocer.com",
     "cyrapahuyo@gmail.com",
     "kmafable@up.edu.ph",

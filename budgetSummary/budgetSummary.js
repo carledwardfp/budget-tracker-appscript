@@ -19,7 +19,7 @@ function budgetSummary() {
 
     // Clear logs before generating
     clearLogs(logSheet);
-    Logger.log("ℹ️: Cleared previous logs");
+    Logger.log("23Cleared previous logs");
 
     let wallet = 0;
     dataValues.forEach(function (row, index) {
@@ -30,12 +30,18 @@ function budgetSummary() {
         const TRANSACTION = row[columnHeaders.indexOf("Transactions")];
         switch (TRANSACTION) {
           case "Income":
+            let income = income(columnHeaders, row);
             break;
           case "Expense":
+            expense(columnHeaders, row);
             break;
           case "Transfer":
+            let transferred = transfer(columnHeaders, row);
+            const { cashin, cashout } = transferred;
+            Logger.log(transferMessage(cashin, cashout, columnHeaders, row));
             break;
           case "Savings":
+            savings(columnHeaders, row);
             break;
           default:
             return;
